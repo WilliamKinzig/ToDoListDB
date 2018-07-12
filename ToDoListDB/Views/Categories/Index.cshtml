@@ -24,7 +24,7 @@
     <ul>
       @foreach(var category in Model)
       {
-        <li>@category.GetName()</li>
+        <li>@category.GetName() | <a href="/Categories/@category.GetId()/delete">Delete</a></li>
       }
     </ul>
   </div>

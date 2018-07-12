@@ -28,9 +28,17 @@ namespace ToDoList.Controllers
     }
 
     [HttpGet("/Categories/Delete")]
-    public ActionResult Delete()
+    public ActionResult DeleteAll()
     {
       Category.DeleteAll();
+      return View("Index", Category.GetAll());
+    }
+
+    [HttpGet("/Categories/{id}/delete")]
+    public ActionResult DeleteCatagory(int id)
+    {
+      Category toBeDeleted = Category.Find(id);
+      toBeDeleted.DeleteCatagory();
       return View("Index", Category.GetAll());
     }
   }
